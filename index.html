@@ -1,0 +1,61 @@
+
+<!doctype html>
+<html class="no-js" lang="en" ng-app='giveBytesApp' ng-cloak>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foundation for Sites</title>
+    <link rel="stylesheet" href="assets/css/app.css">
+  </head>
+  <body>
+
+    <div class="grid-container">
+    
+      <div class="grid-x grid-margin-x" ng-controller="testController">
+    
+        <h1>Init Module</h1>
+        <button type="button" class="button" ng-click="sayHello()">Test Angular Action</button>
+        <button type="button" class="success button" ng-click="callAPI()">Test API Call</button>
+    
+      </div>
+    
+      <div class="grid-x grid-margin-x" ng-controller="authController">
+    
+        <h1>Auth Module</h1>
+        <span>Login Status: {-loginStatus-}</span>
+        <button type="button" class="button" ng-click="sayHello()">Test Auth</button>
+        <button g-login type="button" class="button" ng-hide="isLoggedIn">Login With Google</button>
+        <button fb-login type="button" class="button" ng-hide="isLoggedIn">Login With Facebook</button>
+        <button type="button" class="button" ng-hide="isLoggedIn" ng-click="login()">Login With Email &amp; Password</button>
+        <button type="button" class="button" ng-hide="!isLoggedIn" ng-click="logout()">Logout</button>
+    
+        <div ng-hide="!standardLogin">
+          
+          <div ng-hide="!isRegistration">
+            Full Name: <input type="input" placeholder="John Smith" ng-model="fullname">
+          </div>
+          <div>
+              Email: <input type="input" placeholder="test@test.com" ng-model="email">
+          </div>
+          <div>
+              Password: <input type="password" ng-model="password1">
+          </div>
+          <div ng-hide="!isRegistration">
+              Confirm Password: <input type="password" ng-model="password2">
+          </div>
+          
+          <button type="button" class="button" ng-click="doLogin()" ng-hide="isRegistration">Sign In</button>
+          <button type="button" class="button" ng-click="doRegister()" ng-hide="!isRegistration">Sign Up</button>
+          <button type="button" class="button" ng-click="isRegistration = !isRegistration" ng-hide="isRegistration">Not registered?</button>
+          <button type="button" class="button" ng-click="isRegistration = !isRegistration" ng-hide="!isRegistration">Already registered?</button>
+    
+        </div>
+    
+      </div>
+      
+    </div>
+
+    <script src="assets/js/app.js"></script>
+  </body>
+</html>
