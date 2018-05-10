@@ -33,7 +33,7 @@
         </div>
     
         <div class="cell small-3">
-            <h5>{-loginStatus-}</h5>
+            <h3>{-loginStatus-}</h3>
         </div>
     
         <div class="cell small-6">
@@ -42,28 +42,30 @@
             <button fb-login type="button" class="button" ng-hide="isLoggedIn">Login With Facebook</button>
             <button type="button" class="button success" ng-hide="isLoggedIn" ng-click="login()">Login With Email &amp; Password</button>
             <button type="button" class="button" ng-hide="!isLoggedIn" ng-click="logout()">Logout</button>
-        
-            <div ng-hide="!standardLogin">
+    
+            <form ng-hide="!standardLogin">
               
-              <div ng-hide="!isRegistration">
-                Full Name: <input type="input" placeholder="John Smith" ng-model="fullname">
-              </div>
-              <div>
-                  Email: <input type="input" placeholder="test@test.com" ng-model="email">
-              </div>
-              <div>
+              <label ng-hide="!isRegistration">
+                Full Name
+                <input type="text" placeholder="John Smith" ng-model="fullname">
+              </label>
+              <label>
+                  Email
+                  <input type="text" placeholder="test@test.com" ng-model="email">
+              </label>
+              <label>
                   Password: <input type="password" ng-model="password1">
-              </div>
-              <div ng-hide="!isRegistration">
+              </label>
+              <label ng-hide="!isRegistration">
                   Confirm Password: <input type="password" ng-model="password2">
-              </div>
+              </label>
               
               <button type="button" class="button" ng-click="doLogin()" ng-hide="isRegistration">Sign In</button>
               <button type="button" class="button" ng-click="doRegister()" ng-hide="!isRegistration">Sign Up</button>
               <button type="button" class="button" ng-click="isRegistration = !isRegistration" ng-hide="isRegistration">Not registered?</button>
               <button type="button" class="button" ng-click="isRegistration = !isRegistration" ng-hide="!isRegistration">Already registered?</button>
         
-            </div>
+            </form>
         
         </div>
       
