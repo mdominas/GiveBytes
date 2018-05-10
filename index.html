@@ -39,7 +39,7 @@
         <div class="cell small-6">
     
             <button g-login type="button" class="button alert" ng-hide="isLoggedIn">Login With Google</button>
-            <button fb-login type="button" class="button" ng-hide="isLoggedIn">Login With Facebook</button>
+            <button ng-click="doLogin()" type="button" class="button" ng-hide="isLoggedIn">Login With Facebook</button>
             <button type="button" class="button success" ng-hide="isLoggedIn" ng-click="login()">Login With Email &amp; Password</button>
             <button type="button" class="button" ng-hide="!isLoggedIn" ng-click="logout()">Logout</button>
     
@@ -54,10 +54,10 @@
                   <input type="text" placeholder="test@test.com" ng-model="email">
               </label>
               <label>
-                  Password: <input type="password" ng-model="password1">
+                  Password <input type="password" ng-model="password1">
               </label>
               <label ng-hide="!isRegistration">
-                  Confirm Password: <input type="password" ng-model="password2">
+                  Confirm Password <input type="password" ng-model="password2">
               </label>
               
               <button type="button" class="button" ng-click="doLogin()" ng-hide="isRegistration">Sign In</button>
