@@ -10,57 +10,7 @@
   </head>
   <body>
 
-    <div class="grid-container" id="root">
-    
-      <!-- Init Module -->
-    
-      <!-- Auth Conroller-->
-      <div class="grid-x grid-margin-x callout" ng-controller="authController">
-    
-        <div class="cell small-3">
-            <h3>Auth Module</h3>
-        </div>
-    
-        <div class="cell small-3">
-            <h3>{-loginStatus-}</h3>
-        </div>
-    
-        <div class="cell small-6">
-    
-            <button g-login type="button" class="button alert" ng-hide="isLoggedIn" ng-disabled="isProcessing">{-isProcessing ? '...' : 'Login With Google'-}</button>
-            <button fb-login type="button" class="button" ng-hide="isLoggedIn" ng-disabled="isProcessing">{-isProcessing ? '...' : 'Login With Facebook'-}</button>
-            <button type="button" class="button success" ng-hide="isLoggedIn" ng-click="login()"  ng-disabled="isProcessing">Login With Email &amp; Password</button>
-            <button type="button" class="button" ng-hide="!isLoggedIn" ng-click="logout()">Logout</button>
-    
-            <form ng-hide="!standardLogin">
-              
-              <label ng-hide="!isRegistration">
-                Full Name
-                <input type="text" placeholder="John Smith" ng-model="fullname">
-              </label>
-              <label>
-                  Email
-                  <input type="text" placeholder="test@test.com" ng-model="email">
-              </label>
-              <label>
-                  Password <input type="password" ng-model="password1">
-              </label>
-              <label ng-hide="!isRegistration">
-                  Confirm Password <input type="password" ng-model="password2">
-              </label>
-              
-              <button type="button" class="button" ng-click="doLogin()" ng-hide="isRegistration">Sign In</button>
-              <button type="button" class="button" ng-click="doRegister()" ng-hide="!isRegistration">Sign Up</button>
-              <button type="button" class="button" ng-click="isRegistration = !isRegistration" ng-hide="isRegistration">Not registered?</button>
-              <button type="button" class="button" ng-click="isRegistration = !isRegistration" ng-hide="!isRegistration">Already registered?</button>
-        
-            </form>
-        
-        </div>
-      
-      </div>
-      
-    </div>
+    <section id="kitchen-sink"></section>
 
     <script src="assets/js/app.js"></script>
   </body>
