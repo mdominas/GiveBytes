@@ -31,7 +31,10 @@
 <p>Allowed parameters:</p>
 <ul>
 <li>
-<p>fullName (string, required) - User’s full name (min 2, max 60 characters)</p>
+<p>firstName (string, required) - User’s first name (min 2, max 60 characters)</p>
+</li>
+<li>
+<p>lastName (string, required) - User’s last name (min 2, max 60 characters)</p>
 </li>
 <li>
 <p>email (string, required) - User’s email address</p>
@@ -44,7 +47,8 @@
 </li>
 </ul>
 <h4>Example URI</h4><div class="definition"><span class="method post">POST</span>&nbsp;<span class="uri"><span class="hostname"></span>/auth/register</span></div><div class="title"><strong>Request</strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
-  "<span class="hljs-attribute">fullName</span>": <span class="hljs-value"><span class="hljs-string">"Michal Jordan"</span></span>,
+  "<span class="hljs-attribute">firstName</span>": <span class="hljs-value"><span class="hljs-string">"Michal"</span></span>,
+  "<span class="hljs-attribute">lastName</span>": <span class="hljs-value"><span class="hljs-string">"Jordan"</span></span>,
   "<span class="hljs-attribute">email</span>": <span class="hljs-value"><span class="hljs-string">"michaeljordan@gmail.com"</span></span>,
   "<span class="hljs-attribute">password1</span>": <span class="hljs-value"><span class="hljs-string">"MySecretPassword"</span></span>,
   "<span class="hljs-attribute">password2</span>": <span class="hljs-value"><span class="hljs-string">"MySecretPassword"</span>
@@ -58,22 +62,26 @@
 <p>Allowed parameters:</p>
 <ul>
 <li>
-<p>channel (string, required) - Social channel selected (“Facebook” || “Google”)</p>
+<p>firstName (string, required) - User’s first name (min 2, max 60 characters)</p>
 </li>
 <li>
-<p>fullName (string, required) - User’s full name (min 2, max 60 characters)</p>
+<p>lastName (string, required) - User’s last name (min 2, max 60 characters)</p>
 </li>
 <li>
 <p>email (string, required) - User’s email address</p>
+</li>
+<li>
+<p>channel (string, required) - Social channel selected (“Facebook” || “Google”)</p>
 </li>
 <li>
 <p>token (string, required) - Social access token to verify user’s personal information (min 2, max 255 characters)</p>
 </li>
 </ul>
 <h4>Example URI</h4><div class="definition"><span class="method post">POST</span>&nbsp;<span class="uri"><span class="hostname"></span>/auth/social</span></div><div class="title"><strong>Request</strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
-  "<span class="hljs-attribute">channel</span>": <span class="hljs-value"><span class="hljs-string">"Facebook"</span></span>,
-  "<span class="hljs-attribute">fullName</span>": <span class="hljs-value"><span class="hljs-string">"Michal Jordan"</span></span>,
+  "<span class="hljs-attribute">firstName</span>": <span class="hljs-value"><span class="hljs-string">"Michal"</span></span>,
+  "<span class="hljs-attribute">lastName</span>": <span class="hljs-value"><span class="hljs-string">"Jordan"</span></span>,
   "<span class="hljs-attribute">email</span>": <span class="hljs-value"><span class="hljs-string">"michaeljordan@gmail.com"</span></span>,
+  "<span class="hljs-attribute">channel</span>": <span class="hljs-value"><span class="hljs-string">"Facebook"</span></span>,
   "<span class="hljs-attribute">token</span>": <span class="hljs-value"><span class="hljs-string">"SECRETSOCIALTOKEN"</span>
 </span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
   "<span class="hljs-attribute">authToken</span>": <span class="hljs-value"><span class="hljs-string">"a6ad00ac113a19d953efb91820d8788e2263b28a"</span>
