@@ -1,0 +1,71 @@
+<html>
+
+<head>
+    <script src="https://checkout.stripe.com/checkout.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+</head>
+
+<body>
+
+    <section class="container">
+        <div class="row">
+            <div class="form-inline">
+                <div>
+                    <span>$</span>
+                    <input type="number" value="5" min="5" step="5" data-number-to-fixed="2" data-number-stepfactor="100" class="form-control currency" id="amount" />
+                </div>
+                <div>
+                    <button class="btn btn-primary" id="donate">Donate Now</button>
+                </div>
+            </div>            
+        </div>
+    </section>
+
+    <script>
+
+        $(function() {
+
+            const STRIPE_KEY = 'pk_test_g6do5S237ekq10r65BnxO6S0';            
+            const STRIPE_ICON = 'https://s3.amazonaws.com/f6s-public/profiles/1783047_original.jpg';
+            const STRIPE_NAME = 'GiveBytes.com';
+            const STRIPE_LABEL = 'I\'m donating {{amount}}';
+            const USER_EMAIL = 'marcin@givebytes.com';
+
+            var handler = StripeCheckout.configure({
+                key: STRIPE_KEY,
+                image: STRIPE_ICON,
+                name: STRIPE_NAME,
+                panelLabel: STRIPE_LABEL,
+                locale: 'auto',
+                zipCode: true,
+                allowRememberMe: false,
+                token: function(token) {
+                    alert("Token ID to validate: " + token.id);
+                }
+            });
+
+            $('#donate').click(function(e) {
+
+                e.preventDefault();
+                var amount = $('#amount').val() * 100;
+                if (!amount > 0) {
+                    alert("Invalid amount!");
+                    return;
+                }
+                
+                handler.open({
+                    description: 'I want to support this campaign!',
+                    amount: amount,
+                    email: USER_EMAIL
+                });
+
+            });
+
+        });
+
+    </script>
+
+</body>
+
+</html>
